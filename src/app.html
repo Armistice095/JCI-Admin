@@ -8,13 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap" />
-    <script>
-      // Applique le thème avant le premier rendu (évite le flash clair/sombre).
-      try {
-        var t = localStorage.getItem('jci-theme');
-        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
-      } catch (e) {}
-    </script>
+    <script src="%sveltekit.assets%/theme.js"></script>
     %sveltekit.head%
   </head>
   <body data-sveltekit-preload-data="hover">

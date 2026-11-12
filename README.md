@@ -121,3 +121,16 @@ Page `/` (permission `dashboard.view`, sinon « Accès restreint » avec lien ve
 - Le contrat embarqué passe de 0.5.0 à **0.8.0** (types régénérés : `npm run api:types`).
 
 À noter : `GET /payments` ne filtre qu'un statut à la fois ; la carte affiche donc tous les statuts (y compris « En attente »), avec le badge de statut.
+
+## Déploiement — Cloudflare Workers (`admin.jcicomee.org`)
+
+Application monopage statique (`adapter-static`) servie par Cloudflare Workers (assets). `wrangler.jsonc` renvoie toute adresse inconnue vers `index.html` (routeur côté navigateur) et déclare le domaine `admin.jcicomee.org`.
+
+1. **Git** : `git init -b main && git add . && git commit -m "Administration JCI"`, dépôt **privé**, `git remote add origin … && git push -u origin main`.
+2. **Cloudflare** → Workers & Pages → *Import a repository*. Build : `npm run build` · Deploy : `npx wrangler deploy` · nom du Worker : `jci-admin`.
+3. **Variables « Build »** (obligatoires : elles sont figées dans le code à la construction, y compris dans la CSP) : `VITE_API_URL=https://api.jcicomee.org`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` (clé **anon** uniquement). Après un changement de variable : relancer un build.
+4. **Supabase** → Authentication → URL Configuration : *Site URL* = `https://admin.jcicomee.org` ; *Redirect URLs* : `https://admin.jcicomee.org/definir-mot-de-passe` (invitations et réinitialisations).
+5. **Backend** : CORS `https://admin.jcicomee.org`.
+6. Test local sous Cloudflare : `npm run preview` ; sans Git : `npm run deploy` (après `npx wrangler login`).
+
+Sécurité intégrée : CSP (scripts du site uniquement ; API et Supabase lues dans les variables), anti-iframe, HSTS, `noindex` partout (`robots.txt`, en-tête, balise). Le script de thème est dans `static/theme.js` (la CSP interdit les scripts inline).

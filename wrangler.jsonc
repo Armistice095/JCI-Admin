@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jci-admin",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./build",
+    // Application monopage : toute adresse inconnue renvoie index.html (le routeur prend le relais).
+    "not_found_handling": "single-page-application"
+  },
+  "routes": [
+    { "pattern": "admin.jcicomee.org", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
