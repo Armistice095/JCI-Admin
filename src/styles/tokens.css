@@ -1,0 +1,64 @@
+/* Design tokens — repris à l'identique de la maquette (clair / sombre). */
+:root {
+  color-scheme: light;
+  --ink: #16103f;
+  --mut: #5d5a78;
+  --line: #e4e6ee;
+  --bg: #fff;
+  --soft: #f5f6fa;
+  --acc: #1553b8;
+  --ok: #17703f;
+  --err: #b42a24;
+  --wait: #8a5a00;
+  --page: #f5f6fb;
+  --card: #fff;
+  --sh: 0 1px 2px rgba(22, 16, 63, 0.04), 0 10px 30px rgba(22, 16, 63, 0.06);
+  --cy: #0a78ad;
+  --violet: #6a5ae0;
+
+  /* Couleurs de catégories (KPI, graphiques) */
+  --c-blue: #5b8def;
+  --c-coral: #ff8a6b;
+  --c-amber: #ffc233;
+  --c-purple: #7a6af0;
+
+  --radius: 10px;
+  --radius-card: 18px;
+  --font: Nunito, system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --ink: #f1f1f8;
+    --mut: #b4b2cf;
+    --line: #322f63;
+    --bg: #0f0c25;
+    --soft: #241f58;
+    --acc: #86b3ff;
+    --ok: #5fd394;
+    --err: #ff8b84;
+    --wait: #f0c060;
+    --page: #0b0920;
+    --card: #17133a;
+    --sh: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --cy: #5ccbf5;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ink: #f1f1f8;
+  --mut: #b4b2cf;
+  --line: #322f63;
+  --bg: #0f0c25;
+  --soft: #241f58;
+  --acc: #86b3ff;
+  --ok: #5fd394;
+  --err: #ff8b84;
+  --wait: #f0c060;
+  --page: #0b0920;
+  --card: #17133a;
+  --sh: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --cy: #5ccbf5;
+}
