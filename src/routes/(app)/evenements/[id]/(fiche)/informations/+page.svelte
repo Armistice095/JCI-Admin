@@ -2,7 +2,7 @@
   import Card from '$lib/components/Card.svelte';
   import Button from '$lib/components/Button.svelte';
   import Badge from '$lib/components/Badge.svelte';
-  import ComingSoon from '$lib/components/ComingSoon.svelte';
+  import EventDocuments from '$lib/components/EventDocuments.svelte';
   import Icon from '$lib/components/Icon.svelte';
   import { getEventContext } from '$lib/features/eventContext';
   import { session } from '$lib/stores/session.svelte';
@@ -64,10 +64,7 @@
   </div>
 </div>
 
-<section>
-  <h2 class="dh">Documents</h2>
-  <ComingSoon text="Les exports (liste des participants, rapport de billetterie, liste des présences, journal des paiements) arrivent avec une prochaine version de l’API." />
-</section>
+<EventDocuments eventId={ev.id} slug={ev.slug} />
 
 <style>
   .cols { display: grid; gap: 20px; }
@@ -87,6 +84,5 @@
   .ls small { display: block; color: var(--mut); font-size: 13px; }
   .ci { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; flex: none; color: var(--c-blue); background: color-mix(in srgb, currentColor 12%, transparent); }
   .ci :global(svg) { fill: currentColor; stroke: none; }
-  .dh { font-size: 16px; margin: 4px 0 12px; }
   @media (max-width: 600px) { .kv { grid-template-columns: 1fr; gap: 2px; } .kv dd { margin-bottom: 12px; } }
 </style>

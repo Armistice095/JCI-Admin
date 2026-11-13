@@ -134,3 +134,6 @@ Application monopage statique (`adapter-static`) servie par Cloudflare Workers (
 6. Test local sous Cloudflare : `npm run preview` ; sans Git : `npm run deploy` (après `npx wrangler login`).
 
 Sécurité intégrée : CSP (scripts du site uniquement ; API et Supabase lues dans les variables), anti-iframe, HSTS, `noindex` partout (`robots.txt`, en-tête, balise). Le thème clair/sombre suit automatiquement le système (aucun réglage manuel).
+
+## Étape 12 — Documents de l'événement
+Onglet « Informations », bloc **Documents** : `GET /events/{id}/reports` (4 cartes, grisées si `available: false`) et `GET /events/{id}/reports/{kind}` (PDF téléchargé via `fetch` + jeton). Contrat v0.12.0.
