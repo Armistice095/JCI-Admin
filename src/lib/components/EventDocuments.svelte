@@ -81,7 +81,7 @@
 
 <style>
   .dh { font-size: 16px; margin: 4px 0 12px; }
-  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
   .doc { background: var(--card); border-radius: var(--radius-card); box-shadow: var(--sh); padding: 28px 30px; display: flex; flex-direction: column; gap: 6px; }
   .doc.off { opacity: 0.6; }
   .doc.sk { min-height: 200px; background: var(--soft); box-shadow: none; }
