@@ -167,8 +167,11 @@
   .bar select { width: auto; flex: 0 1 260px; min-width: 200px; }
   .chips { display: flex; gap: 8px 14px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
   .chip { display: inline-flex; align-items: center; gap: 8px; border: 0; background: none; padding: 4px; border-radius: 99px; cursor: pointer; font: 700 15px var(--font); color: var(--ink); }
-  .chip[aria-pressed='true'] { box-shadow: 0 0 0 2px var(--ink); }
   .all { background: var(--soft); border-radius: 99px; padding: 3px 11px; font-size: 14px; }
+  /* Sélection : pastille plus soutenue (teinte de sa propre couleur), sans cadre. */
+  .chip[aria-pressed='true'] :global(.bd), .chip[aria-pressed='true'] .all { box-shadow: inset 0 0 0 100px color-mix(in srgb, currentColor 16%, transparent); font-weight: 800; }
+  .chip[aria-pressed='false'] { opacity: 0.8; }
+  .chip:hover { opacity: 1; }
   .th { border: 0; background: none; font: inherit; color: inherit; cursor: pointer; padding: 0; white-space: nowrap; }
   .busy { opacity: 0.6; transition: opacity 0.15s; }
   .sk { background: linear-gradient(90deg, var(--soft), var(--line), var(--soft)); background-size: 200% 100%; animation: sh 1.2s linear infinite; }
